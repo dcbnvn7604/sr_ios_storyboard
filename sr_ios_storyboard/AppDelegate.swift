@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  sr_ios_storyboard
-//
-//  Created by Hoa Tran on 5/10/21.
-//  Copyright © 2021 Falgor C. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,6 +7,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let configures = Bundle.main.infoDictionary else {
+            fatalError("Can't read Plist file")
+        }
+        
+        guard let apiUrl = configures["api_url"] as? String else {
+            fatalError("api_url not found")
+        }
+        
+        API.shared.setAPIURL(apiUrl: apiUrl)
+        
         return true
     }
 

@@ -1,11 +1,3 @@
-//
-//  SceneDelegate.swift
-//  sr_ios_storyboard
-//
-//  Created by Hoa Tran on 5/10/21.
-//  Copyright © 2021 Falgor C. All rights reserved.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -23,13 +23,14 @@ class sr_ios_storyboardUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testNoLogin() throws {
         let app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let elementQuery = app.descendants(matching: .any)
+        let entryListScreen = elementQuery.matching(identifier: "entryList")
+        XCTAssertEqual(entryListScreen.count, 0, "In entryLit screen")
+        let loginScreen = elementQuery.matching(identifier: "login")
+        XCTAssertEqual(loginScreen.count, 1,"Not in login screen")
     }
 
     func testLaunchPerformance() throws {
