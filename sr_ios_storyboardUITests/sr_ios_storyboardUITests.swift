@@ -52,6 +52,20 @@ class sr_ios_storyboardUITests: XCTestCase {
         XCTAssertEqual(loginScreen.count, 0,"In login screen")
         XCTAssertEqual(app.cells.count, 2)
     }
+    
+    func testLoginFail() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment = ["testcase": "login_fail"]
+        app.launch()
+        let username = app.textFields["Username"]
+        username.tap()
+        username.typeText("username1")
+        let password = app.textFields["Password"]
+        password.tap()
+        password.typeText("password1")
+        app.buttons["Login"].tap()
+        XCTAssertEqual(app.alerts.count, 1)
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

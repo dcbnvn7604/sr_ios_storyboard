@@ -42,6 +42,8 @@ class APIRequestMock:APIRequestProto {
                 (data(text1), response(200), nil),
                 (data(text2), response(200), nil),
             ]
+        case "login_fail":
+            mockData = [(nil, response(400), nil)]
         default:
             fatalError("No testcase")
         }
