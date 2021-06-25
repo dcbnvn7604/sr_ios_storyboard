@@ -19,12 +19,12 @@ class APIRequestMock:APIRequestProto {
     private func initMockData(_ testcase: String) {
         switch testcase {
         case "login":
-            let text1 = """
+            let loginText = """
             {
                 "token": "token1"
             }
             """
-            let text2 = """
+            let entryListText = """
             [
                 {
                     "id": "1",
@@ -39,11 +39,29 @@ class APIRequestMock:APIRequestProto {
             ]
             """
             mockData = [
-                (data(text1), response(200), nil),
-                (data(text2), response(200), nil),
+                (data(loginText), response(200), nil),
+                (data(entryListText), response(200), nil),
             ]
         case "login_fail":
             mockData = [(nil, response(400), nil)]
+        case "login_error":
+            mockData = [(nil, nil, nil)]
+        case "entry_list":
+            let entryListText = """
+            [
+                {
+                    "id": "1",
+                    "title": "title1",
+                    "content": "content1"
+                },
+                {
+                    "id": "2",
+                    "title": "title2",
+                    "content": "content2"
+                }
+            ]
+            """
+            mockData = [(data(entryListText), response(200), nil)]
         default:
             fatalError("No testcase")
         }

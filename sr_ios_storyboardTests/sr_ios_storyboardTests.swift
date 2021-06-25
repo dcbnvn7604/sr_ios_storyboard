@@ -1,11 +1,3 @@
-//
-//  sr_ios_storyboardTests.swift
-//  sr_ios_storyboardTests
-//
-//  Created by Hoa Tran on 5/10/21.
-//  Copyright © 2021 Falgor C. All rights reserved.
-//
-
 import XCTest
 @testable import sr_ios_storyboard
 

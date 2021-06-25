@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let testcase = environment.first(where: { $0.key == "testcase" }) {
             let apiRequestMock = APIRequestMock(testcase.value)
             API.shared.setAPIRequest(apiRequestMock)
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            API.shared.setToken(token)
         }
         
         return true

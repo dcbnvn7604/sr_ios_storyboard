@@ -22,6 +22,10 @@ class API {
         self.apiUrl = apiUrl
     }
     
+    func setToken(_ token: String) {
+        self.token = token
+    }
+    
     func setAPIRequest(_ apiRequest: APIRequestProto) {
         self.apiRequest = apiRequest
     }
@@ -32,7 +36,7 @@ class API {
         case error
     }
     
-    func login(username: String, password: String, loginHandle:@escaping (LoginStatus) -> Void) {
+    func login(username: String, password: String, loginHandle:@escaping (LoginStatus, String?) -> Void) {
         guard let apiUrl = self.apiUrl else {
             fatalError("apiUrl unset")
         }
@@ -45,24 +49,24 @@ class API {
             guard error == nil,
                 let response = response as? HTTPURLResponse,
                 [200, 400].contains(where: {$0 == response.statusCode}) else {
-                loginHandle(LoginStatus.error)
+                loginHandle(LoginStatus.error, nil)
                 return
             }
             
             guard response.statusCode == 200 else {
-                loginHandle(LoginStatus.fail)
+                loginHandle(LoginStatus.fail, nil)
                 return
             }
             
             guard let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
                 let token = json.first(where: { $0.key == "token" })?.value else {
-                loginHandle(LoginStatus.error)
+                loginHandle(LoginStatus.error, nil)
                 return
             }
             
             self.token = token
-            loginHandle(LoginStatus.success)
+            loginHandle(LoginStatus.success, token)
         }
     }
     

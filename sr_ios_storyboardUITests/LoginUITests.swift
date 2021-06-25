@@ -17,6 +17,7 @@ class LoginUITests: XCTestCase {
 
     func testNoLogin() throws {
         let app = XCUIApplication()
+        app.launchEnvironment = ["testcase": "login"]
         app.launch()
         let elementQuery = app.descendants(matching: .any)
         let entryListScreen = elementQuery.matching(identifier: "entryList")

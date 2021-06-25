@@ -11,9 +11,11 @@ class EntryListController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         entryListDataSource!.load(loadFailed: {
-            let authentication = self.navigationController!.storyboard!.instantiateViewController(identifier: "authentication")
-            authentication.modalPresentationStyle = .fullScreen
-            self.present(authentication, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let authentication = self.navigationController!.storyboard!.instantiateViewController(identifier: "authentication")
+                authentication.modalPresentationStyle = .fullScreen
+                self.present(authentication, animated: true, completion: nil)
+            }
         }) {
             self.tableView.reloadData()
         }

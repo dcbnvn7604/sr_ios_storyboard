@@ -19,10 +19,11 @@
 		1D58AC662648C79E00A96139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D58AC652648C79E00A96139 /* Assets.xcassets */; };
 		1D58AC692648C79E00A96139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D58AC672648C79E00A96139 /* LaunchScreen.storyboard */; };
 		1D58AC742648C79E00A96139 /* sr_ios_storyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58AC732648C79E00A96139 /* sr_ios_storyboardTests.swift */; };
-		1D58AC7F2648C79E00A96139 /* sr_ios_storyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58AC7E2648C79E00A96139 /* sr_ios_storyboardUITests.swift */; };
+		1D58AC7F2648C79E00A96139 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58AC7E2648C79E00A96139 /* LoginUITests.swift */; };
 		1D6F76E8266D3BCB008BE475 /* EntryListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F76E7266D3BCB008BE475 /* EntryListDataSource.swift */; };
 		1D90AE2726733AEC003DE5DF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D90AE2626733AEC003DE5DF /* LoginController.swift */; };
 		1DA70AED2664E5D4003323AC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA70AEC2664E5D4003323AC /* API.swift */; };
+		1DF327EA26863FD4006E145F /* EntryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF327E926863FD4006E145F /* EntryUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +61,13 @@
 		1D58AC732648C79E00A96139 /* sr_ios_storyboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sr_ios_storyboardTests.swift; sourceTree = "<group>"; };
 		1D58AC752648C79E00A96139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D58AC7A2648C79E00A96139 /* sr_ios_storyboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sr_ios_storyboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D58AC7E2648C79E00A96139 /* sr_ios_storyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sr_ios_storyboardUITests.swift; sourceTree = "<group>"; };
+		1D58AC7E2648C79E00A96139 /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		1D58AC802648C79E00A96139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D58BD012665DA500026C43D /* dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dev.xcconfig; sourceTree = "<group>"; };
 		1D6F76E7266D3BCB008BE475 /* EntryListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListDataSource.swift; sourceTree = "<group>"; };
 		1D90AE2626733AEC003DE5DF /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1DA70AEC2664E5D4003323AC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1DF327E926863FD4006E145F /* EntryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +166,9 @@
 		1D58AC7D2648C79E00A96139 /* sr_ios_storyboardUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1D58AC7E2648C79E00A96139 /* sr_ios_storyboardUITests.swift */,
+				1D58AC7E2648C79E00A96139 /* LoginUITests.swift */,
 				1D58AC802648C79E00A96139 /* Info.plist */,
+				1DF327E926863FD4006E145F /* EntryUITests.swift */,
 			);
 			path = sr_ios_storyboardUITests;
 			sourceTree = "<group>";
@@ -327,7 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D58AC7F2648C79E00A96139 /* sr_ios_storyboardUITests.swift in Sources */,
+				1DF327EA26863FD4006E145F /* EntryUITests.swift in Sources */,
+				1D58AC7F2648C79E00A96139 /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
