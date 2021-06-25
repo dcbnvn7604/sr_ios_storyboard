@@ -4,11 +4,12 @@ class EntryListDataSource: NSObject {
     private var entryList: [Entry] = []
     
     func load(loadFailed: @escaping () -> Void, loadSuccess: @escaping () -> Void) {
-        API.shared.listEntrie() { success, entryList in
-            if !success {
+        API.shared.listEntry() { success, entryList in
+            guard success else {
                 loadFailed()
                 return
             }
+
             self.entryList = entryList!
             loadSuccess()
         }

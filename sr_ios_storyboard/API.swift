@@ -1,6 +1,6 @@
 import Foundation
 
-protocol APIRequestProto {
+public protocol APIRequestProto {
     func call(url: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
@@ -16,13 +16,23 @@ class API {
     private var apiUrl: String?
     private var token: String?
     
-    var apiRequest: APIRequestProto = APIRequest()
+    private var apiRequest: APIRequestProto = APIRequest()
     
     func setAPIURL(apiUrl: String) {
         self.apiUrl = apiUrl
     }
     
-    func login(username: String, password: String) {
+    func setAPIRequest(_ apiRequest: APIRequestProto) {
+        self.apiRequest = apiRequest
+    }
+    
+    enum LoginStatus: Int {
+        case success
+        case fail
+        case error
+    }
+    
+    func login(username: String, password: String, loginHandle:@escaping (LoginStatus) -> Void) {
         guard let apiUrl = self.apiUrl else {
             fatalError("apiUrl unset")
         }
@@ -32,11 +42,31 @@ class API {
         let json: [String:String] = ["username": username, "password": password]
         request.httpBody = try! JSONSerialization.data(withJSONObject: json)
         self.apiRequest.call(url: request) { data, response, error in
+            guard error == nil,
+                let response = response as? HTTPURLResponse,
+                [200, 400].contains(where: {$0 == response.statusCode}) else {
+                loginHandle(LoginStatus.error)
+                return
+            }
             
+            guard response.statusCode == 200 else {
+                loginHandle(LoginStatus.fail)
+                return
+            }
+            
+            guard let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
+                let token = json.first(where: { $0.key == "token" })?.value else {
+                loginHandle(LoginStatus.error)
+                return
+            }
+            
+            self.token = token
+            loginHandle(LoginStatus.success)
         }
     }
     
-    func listEntrie(listEntryCompleted: @escaping (Bool, [Entry]?) -> Void) {
+    func listEntry(listEntryCompleted: @escaping (Bool, [Entry]?) -> Void) {
         guard let apiUrl = self.apiUrl else {
             fatalError("apiUrl unset")
         }
@@ -50,10 +80,16 @@ class API {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         self.apiRequest.call(url: request) { data, response, error in
-            if let _ = error {
+            guard error == nil,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200,
+                let data = data,
+                let entryList = try? JSONDecoder().decode([Entry].self, from: data) else {
                 listEntryCompleted(false, nil)
                 return
             }
+            
+            listEntryCompleted(true, entryList)
         }
     }
 }

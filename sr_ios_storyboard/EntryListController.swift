@@ -1,16 +1,21 @@
 import UIKit
 
 class EntryListController: UITableViewController {
+    private var entryListDataSource: EntryListDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let entryListDataSource = EntryListDataSource()
+        entryListDataSource = EntryListDataSource()
         tableView.dataSource = entryListDataSource
-        entryListDataSource.load(loadFailed: {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        entryListDataSource!.load(loadFailed: {
             let authentication = self.navigationController!.storyboard!.instantiateViewController(identifier: "authentication")
             authentication.modalPresentationStyle = .fullScreen
             self.present(authentication, animated: true, completion: nil)
         }) {
+            self.tableView.reloadData()
         }
     }
 }

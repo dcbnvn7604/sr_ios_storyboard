@@ -1,4 +1,6 @@
+import Foundation
 import UIKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         API.shared.setAPIURL(apiUrl: apiUrl)
+        let environment = ProcessInfo.processInfo.environment
+        if let testcase = environment.first(where: { $0.key == "testcase" }) {
+            let apiRequestMock = APIRequestMock(testcase.value)
+            API.shared.setAPIRequest(apiRequestMock)
+        }
         
         return true
     }

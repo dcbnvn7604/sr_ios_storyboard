@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import sr_ios_storyboard
 
 class sr_ios_storyboardUITests: XCTestCase {
 
@@ -31,6 +32,25 @@ class sr_ios_storyboardUITests: XCTestCase {
         XCTAssertEqual(entryListScreen.count, 0, "In entryLit screen")
         let loginScreen = elementQuery.matching(identifier: "login")
         XCTAssertEqual(loginScreen.count, 1,"Not in login screen")
+    }
+    
+    func testLogin() throws {
+        let app = XCUIApplication()
+        app.launchEnvironment = ["testcase": "login"]
+        app.launch()
+        let username = app.textFields["Username"]
+        username.tap()
+        username.typeText("username1")
+        let password = app.textFields["Password"]
+        password.tap()
+        password.typeText("password1")
+        app.buttons["Login"].tap()
+        let elementQuery = app.descendants(matching: .any)
+        let entryListScreen = elementQuery.matching(identifier: "entryList")
+        XCTAssertEqual(entryListScreen.count, 1, "Not in entryLit screen")
+        let loginScreen = elementQuery.matching(identifier: "login")
+        XCTAssertEqual(loginScreen.count, 0,"In login screen")
+        XCTAssertEqual(app.cells.count, 2)
     }
 
     func testLaunchPerformance() throws {

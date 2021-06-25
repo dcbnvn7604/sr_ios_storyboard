@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dcF-T8-MPy" customClass="EntryListCell" customModule="sr_ios_storyboard" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryListCell" id="dcF-T8-MPy" customClass="EntryListCell" customModule="sr_ios_storyboard" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dcF-T8-MPy" id="KwL-3H-aZW">
@@ -78,7 +78,7 @@
         <scene sceneID="3fS-SR-f4v">
             <objects>
                 <viewController id="bE4-K2-SiP" customClass="LoginController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W3G-Bu-Hx1">
+                    <view key="view" contentMode="scaleToFill" id="W3G-Bu-Hx1" customClass="LoginView" customModule="sr_ios_storyboard" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -113,6 +113,9 @@
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="triggerLogin:" destination="W3G-Bu-Hx1" eventType="touchUpInside" id="pES-Q9-KkS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -127,8 +130,15 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="login"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="password" destination="xxK-l1-A9J" id="xhU-NR-Nz4"/>
+                            <outlet property="username" destination="tdW-pe-ggm" id="hQQ-iw-OSh"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="UXg-iz-CTg"/>
+                    <connections>
+                        <outlet property="loginView" destination="W3G-Bu-Hx1" id="fK6-hL-PhF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tk-cR-8yj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
