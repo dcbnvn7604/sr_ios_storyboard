@@ -17,28 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryListCell" id="dcF-T8-MPy" customClass="EntryListCell" customModule="sr_ios_storyboard" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EntryListCell" id="dcF-T8-MPy">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dcF-T8-MPy" id="KwL-3H-aZW">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQO-SS-zpN">
-                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fQO-SS-zpN" secondAttribute="trailing" constant="20" symbolic="YES" id="GTx-FE-JCc"/>
-                                        <constraint firstItem="fQO-SS-zpN" firstAttribute="centerY" secondItem="KwL-3H-aZW" secondAttribute="centerY" id="bfp-NK-o5D"/>
-                                        <constraint firstItem="fQO-SS-zpN" firstAttribute="leading" secondItem="KwL-3H-aZW" secondAttribute="leading" constant="20" symbolic="YES" id="cid-co-ios"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="titleLabel" destination="fQO-SS-zpN" id="oGA-GC-c4M"/>
+                                    <segue destination="vv1-3h-pTa" kind="show" identifier="EntryDetail" id="EGq-z1-ohj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,6 +42,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUo-Jm-wxv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1033.3333333333335" y="38.839285714285715"/>
+        </scene>
+        <!--Entry Detail Controller-->
+        <scene sceneID="JbH-3g-S1d">
+            <objects>
+                <tableViewController id="vv1-3h-pTa" customClass="EntryDetailController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iha-kM-Re5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryDetailCell" id="YeM-U3-FVx">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YeM-U3-FVx" id="pEM-p0-EcA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="entryDetail"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="vv1-3h-pTa" id="KMt-A7-CoI"/>
+                            <outlet property="delegate" destination="vv1-3h-pTa" id="Hrh-bv-hG2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="RCB-LV-Kvh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frJ-DY-IzU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1929" y="39"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGO-bt-2tk">

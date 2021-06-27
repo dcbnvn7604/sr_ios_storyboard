@@ -19,11 +19,8 @@ class LoginUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchEnvironment = ["testcase": "login"]
         app.launch()
-        let elementQuery = app.descendants(matching: .any)
-        let entryListScreen = elementQuery.matching(identifier: "entryList")
-        XCTAssertEqual(entryListScreen.count, 0, "In entryLit screen")
-        let loginScreen = elementQuery.matching(identifier: "login")
-        XCTAssertEqual(loginScreen.count, 1,"Not in login screen")
+        XCTAssertFalse(app.tables["entryList"].exists)
+        XCTAssertTrue(app.otherElements["login"].exists)
     }
     
     func testLogin() throws {
@@ -37,11 +34,8 @@ class LoginUITests: XCTestCase {
         password.tap()
         password.typeText("password1")
         app.buttons["Login"].tap()
-        let elementQuery = app.descendants(matching: .any)
-        let entryListScreen = elementQuery.matching(identifier: "entryList")
-        XCTAssertEqual(entryListScreen.count, 1, "Not in entryLit screen")
-        let loginScreen = elementQuery.matching(identifier: "login")
-        XCTAssertEqual(loginScreen.count, 0,"In login screen")
+        XCTAssertTrue(app.tables["entryList"].exists)
+        XCTAssertFalse(app.otherElements["login"].exists)
         XCTAssertEqual(app.cells.count, 2)
     }
     

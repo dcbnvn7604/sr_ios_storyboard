@@ -22,7 +22,19 @@ class EntryUITests: XCTestCase {
         app.launchArguments = ["-token", "token1"]
         app.launchEnvironment = ["testcase": "entry_list"]
         app.launch()
+        XCTAssertTrue(app.tables["entryList"].exists)
         XCTAssertEqual(app.cells.count, 2)
     }
 
+    func testEntryDetail() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-token", "token1"]
+        app.launchEnvironment = ["testcase": "entry_list"]
+        app.launch()
+        XCTAssertTrue(app.tables["entryList"].exists)
+        XCTAssertEqual(app.cells.count, 2)
+        app.cells.element(boundBy: 1).tap()
+        XCTAssertTrue(app.tables["entryDetail"].exists)
+        XCTAssertEqual(app.cells.count, 2)
+    }
 }
