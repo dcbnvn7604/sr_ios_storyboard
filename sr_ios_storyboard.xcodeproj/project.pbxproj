@@ -20,8 +20,11 @@
 		1D58AC742648C79E00A96139 /* sr_ios_storyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58AC732648C79E00A96139 /* sr_ios_storyboardTests.swift */; };
 		1D58AC7F2648C79E00A96139 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58AC7E2648C79E00A96139 /* LoginUITests.swift */; };
 		1D6F76E8266D3BCB008BE475 /* EntryListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F76E7266D3BCB008BE475 /* EntryListDataSource.swift */; };
+		1D8A9F552689722D00D27A55 /* EntryDetailEditDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A9F542689722D00D27A55 /* EntryDetailEditDataSource.swift */; };
+		1D8A9F5726898A1E00D27A55 /* TitleEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A9F5626898A1E00D27A55 /* TitleEditCell.swift */; };
+		1D8A9F5926898B4C00D27A55 /* ContendEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A9F5826898B4C00D27A55 /* ContendEditCell.swift */; };
 		1D90AE2726733AEC003DE5DF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D90AE2626733AEC003DE5DF /* LoginController.swift */; };
-		1D9AC7E226882A5400E304F8 /* EntryDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9AC7E126882A5400E304F8 /* EntryDetailDataSource.swift */; };
+		1D9AC7E226882A5400E304F8 /* EntryDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9AC7E126882A5400E304F8 /* EntryDetailViewDataSource.swift */; };
 		1DA70AED2664E5D4003323AC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA70AEC2664E5D4003323AC /* API.swift */; };
 		1DD7FD6C26876960001E292E /* EntryDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD7FD6B26876960001E292E /* EntryDetailController.swift */; };
 		1DF327EA26863FD4006E145F /* EntryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF327E926863FD4006E145F /* EntryUITests.swift */; };
@@ -65,8 +68,11 @@
 		1D58AC802648C79E00A96139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D58BD012665DA500026C43D /* dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dev.xcconfig; sourceTree = "<group>"; };
 		1D6F76E7266D3BCB008BE475 /* EntryListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListDataSource.swift; sourceTree = "<group>"; };
+		1D8A9F542689722D00D27A55 /* EntryDetailEditDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailEditDataSource.swift; sourceTree = "<group>"; };
+		1D8A9F5626898A1E00D27A55 /* TitleEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditCell.swift; sourceTree = "<group>"; };
+		1D8A9F5826898B4C00D27A55 /* ContendEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContendEditCell.swift; sourceTree = "<group>"; };
 		1D90AE2626733AEC003DE5DF /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		1D9AC7E126882A5400E304F8 /* EntryDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailDataSource.swift; sourceTree = "<group>"; };
+		1D9AC7E126882A5400E304F8 /* EntryDetailViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewDataSource.swift; sourceTree = "<group>"; };
 		1DA70AEC2664E5D4003323AC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1DD7FD6B26876960001E292E /* EntryDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailController.swift; sourceTree = "<group>"; };
 		1DF327E926863FD4006E145F /* EntryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryUITests.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				1D49ABBB26830E8A0009EF67 /* LoginView.swift */,
+				1D8A9F5626898A1E00D27A55 /* TitleEditCell.swift */,
+				1D8A9F5826898B4C00D27A55 /* ContendEditCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -187,7 +195,8 @@
 			children = (
 				1D025110266DBE7A002843B5 /* Entry.swift */,
 				1D6F76E7266D3BCB008BE475 /* EntryListDataSource.swift */,
-				1D9AC7E126882A5400E304F8 /* EntryDetailDataSource.swift */,
+				1D9AC7E126882A5400E304F8 /* EntryDetailViewDataSource.swift */,
+				1D8A9F542689722D00D27A55 /* EntryDetailEditDataSource.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -325,7 +334,7 @@
 			files = (
 				1D46187F26842B1A002B15BB /* Mock.swift in Sources */,
 				1D2006A8268184F500CBA079 /* AuthenticationController.swift in Sources */,
-				1D9AC7E226882A5400E304F8 /* EntryDetailDataSource.swift in Sources */,
+				1D9AC7E226882A5400E304F8 /* EntryDetailViewDataSource.swift in Sources */,
 				1D025111266DBE7A002843B5 /* Entry.swift in Sources */,
 				1DD7FD6C26876960001E292E /* EntryDetailController.swift in Sources */,
 				1D58AC612648C79C00A96139 /* EntryListController.swift in Sources */,
@@ -333,8 +342,11 @@
 				1DA70AED2664E5D4003323AC /* API.swift in Sources */,
 				1D90AE2726733AEC003DE5DF /* LoginController.swift in Sources */,
 				1D58AC5F2648C79C00A96139 /* SceneDelegate.swift in Sources */,
+				1D8A9F5726898A1E00D27A55 /* TitleEditCell.swift in Sources */,
 				1D49ABBC26830E8A0009EF67 /* LoginView.swift in Sources */,
 				1D6F76E8266D3BCB008BE475 /* EntryListDataSource.swift in Sources */,
+				1D8A9F5926898B4C00D27A55 /* ContendEditCell.swift in Sources */,
+				1D8A9F552689722D00D27A55 /* EntryDetailEditDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

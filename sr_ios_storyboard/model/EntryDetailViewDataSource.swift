@@ -1,6 +1,6 @@
 import UIKit
 
-class EntryDetailDataSource: NSObject {
+class EntryDetailViewDataSource: NSObject {
     private var entry: Entry
     
     enum DetailRow: Int, CaseIterable {
@@ -23,7 +23,7 @@ class EntryDetailDataSource: NSObject {
     }
 }
 
-extension EntryDetailDataSource: UITableViewDataSource {
+extension EntryDetailViewDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DetailRow.allCases.count
     }
