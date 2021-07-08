@@ -9,7 +9,7 @@ class ContentEditCell: UITableViewCell {
         content.delegate = self
     }
     
-    func configure(content: String, contentChange: @escaping (String) -> Void) {
+    func configure(content: String?, contentChange: @escaping (String) -> Void) {
         self.content.text = content
         self.contentChange = contentChange
     }

@@ -8,7 +8,7 @@ class EntryDetailEditDataSource: NSObject {
         case title
         case content
         
-        func value(_ entry: Entry) -> String {
+        func value(_ entry: Entry) -> String? {
             switch self {
             case .title:
                 return entry.title
@@ -18,13 +18,21 @@ class EntryDetailEditDataSource: NSObject {
         }
     }
     
-    init(entry: Entry, entryChange: @escaping (Entry) -> Void) {
-        self.entry = entry
+    init(entry: Entry?, entryChange: @escaping (Entry) -> Void) {
+        if let entry = entry {
+            self.entry = entry
+        } else {
+            self.entry = Entry()
+        }
         self.entryChange = entryChange
     }
     
     func update(updateHandler: @escaping (Bool) -> Void) {
         API.shared.updateEntry(entry, updateHandler: updateHandler)
+    }
+    
+    func add(addHandler: @escaping (Bool) -> Void) {
+        API.shared.addEntry(entry, addHandler: addHandler)
     }
 }
  

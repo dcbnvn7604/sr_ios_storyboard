@@ -7,7 +7,7 @@ class EntryDetailViewDataSource: NSObject {
         case title
         case content
         
-        func display(entry: Entry) -> String {
+        func display(entry: Entry) -> String? {
             switch self {
             case .title:
                 return entry.title

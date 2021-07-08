@@ -71,4 +71,36 @@ class EntryUITests: XCTestCase {
         editEntry.tap()
         XCTAssertTrue(app.otherElements["login"].exists)
     }
+    
+    func testEntryAdd() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-token", "token1"]
+        app.launchEnvironment = ["testcase": "entry_add"]
+        app.launch()
+        app.buttons["addEntry"].tap()
+        let editTile = app.textFields["editTitle"]
+        editTile.tap()
+        editTile.typeText("entrytitleadd")
+        let editContent = app.textViews["editContent"]
+        editContent.tap()
+        editContent.typeText("entrycontentadd")
+        app.buttons["editEntry"].tap()
+        XCTAssertEqual(app.tables.count, 1)
+    }
+    
+    func testEntryAddFail() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-token", "token1"]
+        app.launchEnvironment = ["testcase": "entry_add_fail"]
+        app.launch()
+        app.buttons["addEntry"].tap()
+        let editTile = app.textFields["editTitle"]
+        editTile.tap()
+        editTile.typeText("entrytitleadd")
+        let editContent = app.textViews["editContent"]
+        editContent.tap()
+        editContent.typeText("entrycontentadd")
+        app.buttons["editEntry"].tap()
+        XCTAssertTrue(app.otherElements["login"].exists)
+    }
 }

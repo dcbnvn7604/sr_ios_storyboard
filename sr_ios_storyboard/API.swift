@@ -106,10 +106,10 @@ class API {
             fatalError("token unset")
         }
         
-        let url = URL(string: "\(apiUrl)/api/entries/\(entry.id)/")!
+        let url = URL(string: "\(apiUrl)/api/entries/\(entry.id!)/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        let json: [String:String] = ["title": entry.title, "content": entry.content]
+        let json: [String:String] = ["title": entry.title!, "content": entry.content!]
         request.httpBody = try! JSONSerialization.data(withJSONObject: json)
         self.apiRequest.call(url: request) { data, response, error in
             guard error == nil,
@@ -119,6 +119,31 @@ class API {
                 return
             }
             updateHandler(true)
+        }
+    }
+    
+    func addEntry(_ entry: Entry, addHandler: @escaping (Bool) -> Void) {
+        guard let apiUrl = self.apiUrl else {
+            fatalError("apiUrl unset")
+        }
+        
+        guard let _ = self.token else {
+            fatalError("token unset")
+        }
+        
+        let url = URL(string: "\(apiUrl)/api/entries/")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let json: [String:String] = ["title": entry.title!, "content": entry.content!]
+        request.httpBody = try! JSONSerialization.data(withJSONObject: json)
+        self.apiRequest.call(url: request) { data, response, error in
+            guard error == nil,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 201 else {
+                addHandler(false)
+                return
+            }
+            addHandler(true)
         }
     }
 }

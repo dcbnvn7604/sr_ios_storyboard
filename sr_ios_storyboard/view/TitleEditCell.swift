@@ -9,7 +9,7 @@ class TitleEditCell: UITableViewCell {
         title.delegate = self
     }
     
-    func configure(title:String, titleChange: @escaping (String) -> Void) {
+    func configure(title:String?, titleChange: @escaping (String) -> Void) {
         self.title.text = title
         self.titleChange = titleChange
     }

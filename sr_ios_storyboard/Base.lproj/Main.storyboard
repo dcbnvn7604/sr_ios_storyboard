@@ -37,7 +37,18 @@
                             <outlet property="delegate" destination="Ftp-JM-xzA" id="KMd-dI-uDD"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="snQ-Hi-5OZ">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="addEntry"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="addEntry:" destination="Ftp-JM-xzA" id="Spf-MS-FBR"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="7Vf-Sa-Gob"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUo-Jm-wxv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,7 +57,7 @@
         <!--Entry Detail Controller-->
         <scene sceneID="JbH-3g-S1d">
             <objects>
-                <tableViewController id="vv1-3h-pTa" customClass="EntryDetailController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="entryDetail" id="vv1-3h-pTa" customClass="EntryDetailController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iha-kM-Re5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +118,9 @@
                                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="editContent"/>
+                                            </userDefinedRuntimeAttributes>
                                         </textView>
                                     </subviews>
                                     <constraints>
@@ -138,13 +152,17 @@
         <!--Navigation Controller-->
         <scene sceneID="zGO-bt-2tk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XHm-v0-a2a" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="XHm-v0-a2a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ei5-ec-eYK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IKo-mC-MKl">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Ftp-JM-xzA" kind="relationship" relationship="rootViewController" id="fRh-Jt-3tG"/>
                     </connections>
