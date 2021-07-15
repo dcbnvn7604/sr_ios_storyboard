@@ -139,6 +139,39 @@ class APIRequestMock:APIRequestProto {
                 (data(entryListText), response(200), nil),
                 (nil, response(400), nil),
             ]
+        case "register":
+            let registerText = """
+            {
+                "token": "token1"
+            }
+            """
+            let entryListText = """
+            [
+                {
+                    "id": "1",
+                    "title": "title1",
+                    "content": "content1"
+                },
+                {
+                    "id": "2",
+                    "title": "title2",
+                    "content": "content2"
+                }
+            ]
+            """
+            mockData = [
+                (data(registerText), response(201), nil),
+                (data(entryListText), response(200), nil),
+            ]
+        case "register_error":
+            mockData = [(nil, nil, nil)]
+        case "register_fail":
+            let registerText = """
+            {
+                "error": "some error"
+            }
+            """
+            mockData = [(data(registerText), response(400), nil)]
         default:
             fatalError("No testcase")
         }

@@ -33,7 +33,7 @@ class LoginUITests: XCTestCase {
         let password = app.textFields["Password"]
         password.tap()
         password.typeText("password1")
-        app.buttons["Login"].tap()
+        app.buttons["loginButton"].tap()
         XCTAssertTrue(app.tables["entryList"].exists)
         XCTAssertFalse(app.otherElements["login"].exists)
         XCTAssertEqual(app.cells.count, 2)

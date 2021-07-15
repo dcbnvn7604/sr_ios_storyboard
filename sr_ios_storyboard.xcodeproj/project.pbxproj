@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D025111266DBE7A002843B5 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D025110266DBE7A002843B5 /* Entry.swift */; };
+		1D13DBC6269ED2A2009228B8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D13DBC5269ED2A2009228B8 /* RegisterController.swift */; };
+		1D13DBC8269ED2B5009228B8 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D13DBC7269ED2B5009228B8 /* RegisterView.swift */; };
+		1D13DBCA269ED2D9009228B8 /* RegisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D13DBC9269ED2D9009228B8 /* RegisterUITests.swift */; };
 		1D2006A8268184F500CBA079 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2006A7268184F500CBA079 /* AuthenticationController.swift */; };
 		1D46187F26842B1A002B15BB /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D49ABBF268337AD0009EF67 /* Mock.swift */; };
 		1D49ABBC26830E8A0009EF67 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D49ABBB26830E8A0009EF67 /* LoginView.swift */; };
@@ -49,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		1D025110266DBE7A002843B5 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		1D13DBC5269ED2A2009228B8 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		1D13DBC7269ED2B5009228B8 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		1D13DBC9269ED2D9009228B8 /* RegisterUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUITests.swift; sourceTree = "<group>"; };
 		1D2006A7268184F500CBA079 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		1D49ABBB26830E8A0009EF67 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1D49ABBF268337AD0009EF67 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		1D49ABBA26830E630009EF67 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				1D13DBC7269ED2B5009228B8 /* RegisterView.swift */,
 				1D49ABBB26830E8A0009EF67 /* LoginView.swift */,
 				1D8A9F5626898A1E00D27A55 /* TitleEditCell.swift */,
 				1D8A9F5826898B4C00D27A55 /* ContendEditCell.swift */,
@@ -173,6 +180,7 @@
 		1D58AC7D2648C79E00A96139 /* sr_ios_storyboardUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1D13DBC9269ED2D9009228B8 /* RegisterUITests.swift */,
 				1D58AC7E2648C79E00A96139 /* LoginUITests.swift */,
 				1D58AC802648C79E00A96139 /* Info.plist */,
 				1DF327E926863FD4006E145F /* EntryUITests.swift */,
@@ -183,6 +191,7 @@
 		1DD7FD6D26876BD9001E292E /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				1D13DBC5269ED2A2009228B8 /* RegisterController.swift */,
 				1DD7FD6B26876960001E292E /* EntryDetailController.swift */,
 				1D58AC602648C79C00A96139 /* EntryListController.swift */,
 				1D90AE2626733AEC003DE5DF /* LoginController.swift */,
@@ -340,10 +349,12 @@
 				1D58AC612648C79C00A96139 /* EntryListController.swift in Sources */,
 				1D58AC5D2648C79C00A96139 /* AppDelegate.swift in Sources */,
 				1DA70AED2664E5D4003323AC /* API.swift in Sources */,
+				1D13DBC8269ED2B5009228B8 /* RegisterView.swift in Sources */,
 				1D90AE2726733AEC003DE5DF /* LoginController.swift in Sources */,
 				1D58AC5F2648C79C00A96139 /* SceneDelegate.swift in Sources */,
 				1D8A9F5726898A1E00D27A55 /* TitleEditCell.swift in Sources */,
 				1D49ABBC26830E8A0009EF67 /* LoginView.swift in Sources */,
+				1D13DBC6269ED2A2009228B8 /* RegisterController.swift in Sources */,
 				1D6F76E8266D3BCB008BE475 /* EntryListDataSource.swift in Sources */,
 				1D8A9F5926898B4C00D27A55 /* ContendEditCell.swift in Sources */,
 				1D8A9F552689722D00D27A55 /* EntryDetailEditDataSource.swift in Sources */,
@@ -363,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF327EA26863FD4006E145F /* EntryUITests.swift in Sources */,
+				1D13DBCA269ED2D9009228B8 /* RegisterUITests.swift in Sources */,
 				1D58AC7F2648C79E00A96139 /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

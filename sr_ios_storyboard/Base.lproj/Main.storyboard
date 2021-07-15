@@ -171,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="123.18840579710145" y="38.839285714285715"/>
         </scene>
-        <!--Item-->
+        <!--Login-->
         <scene sceneID="3fS-SR-f4v">
             <objects>
                 <viewController id="bE4-K2-SiP" customClass="LoginController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,6 +210,9 @@
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
                                         <state key="normal" title="Login"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="loginButton"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="triggerLogin:" destination="W3G-Bu-Hx1" eventType="touchUpInside" id="pES-Q9-KkS"/>
                                         </connections>
@@ -232,7 +235,7 @@
                             <outlet property="username" destination="tdW-pe-ggm" id="hQQ-iw-OSh"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="UXg-iz-CTg"/>
+                    <tabBarItem key="tabBarItem" title="Login" image="person" catalog="system" id="UXg-iz-CTg"/>
                     <connections>
                         <outlet property="loginView" destination="W3G-Bu-Hx1" id="fK6-hL-PhF"/>
                     </connections>
@@ -240,6 +243,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tk-cR-8yj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="741.96428571428567"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="moV-Fs-pyn">
+            <objects>
+                <viewController id="QFI-aP-0MS" customClass="RegisterController" customModule="sr_ios_storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bLl-1h-m2a" customClass="RegisterView" customModule="sr_ios_storyboard" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cBX-9k-h6b">
+                                <rect key="frame" x="52" y="356" width="310.5" height="184.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH9-ID-OcF">
+                                        <rect key="frame" x="0.0" y="0.0" width="310.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LK5-w1-KeV">
+                                        <rect key="frame" x="0.0" y="28.5" width="310.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HPa-Rm-jpa">
+                                        <rect key="frame" x="0.0" y="70.5" width="310.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repassword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Df7-xI-GiA">
+                                        <rect key="frame" x="0.0" y="112.5" width="310.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8le-e0-MbJ">
+                                        <rect key="frame" x="0.0" y="154.5" width="310.5" height="30"/>
+                                        <state key="normal" title="Register"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="registerButton"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="triggerRegister:" destination="bLl-1h-m2a" eventType="touchUpInside" id="M9J-Fe-YFo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cBX-9k-h6b" firstAttribute="width" secondItem="bLl-1h-m2a" secondAttribute="width" multiplier="0.75" id="Y8S-CD-tA5"/>
+                            <constraint firstItem="cBX-9k-h6b" firstAttribute="centerY" secondItem="bLl-1h-m2a" secondAttribute="centerY" id="iY3-o0-831"/>
+                            <constraint firstItem="cBX-9k-h6b" firstAttribute="centerX" secondItem="bLl-1h-m2a" secondAttribute="centerX" id="uAO-k1-dMh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WEm-h4-0uX"/>
+                        <connections>
+                            <outlet property="container" destination="cBX-9k-h6b" id="pX6-pn-AQz"/>
+                            <outlet property="password" destination="HPa-Rm-jpa" id="FwG-2J-8QZ"/>
+                            <outlet property="repassword" destination="Df7-xI-GiA" id="s7H-MP-Fx3"/>
+                            <outlet property="username" destination="LK5-w1-KeV" id="sbd-LR-lg3"/>
+                        </connections>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Register" image="square.and.pencil" catalog="system" id="066-kR-6z1">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="registerTab"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="resisterView" destination="bLl-1h-m2a" id="Pd2-WZ-CeU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="83t-3W-deT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="1445"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WuR-hc-ywb">
@@ -253,6 +328,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="bE4-K2-SiP" kind="relationship" relationship="viewControllers" id="MyO-fe-cZ7"/>
+                        <segue destination="QFI-aP-0MS" kind="relationship" relationship="viewControllers" id="ADs-Od-mEe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwE-uA-af4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -260,4 +336,8 @@
             <point key="canvasLocation" x="121.73913043478262" y="741.96428571428567"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+    </resources>
 </document>
